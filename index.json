@@ -1,0 +1,25 @@
+{
+    "package_name": "Package Murilo",
+    "dependencies": [],
+    "package_aggr": [
+        {
+            "name_agg": "underground",
+            "routes": "/sensor/underground/"
+        }
+    ],
+    "package_plugin_config": [
+        {
+            "name_module": "module 1",
+            "base_route": "/underground",
+            "agg_route": "/underground",
+            "script_path": "test_underground"
+        }
+    ],
+    "package_plugin_source": [
+        {
+            "name_plugin": "module 1",
+            "bytes_plugin": "\ndef getNodeInput(node)\n\tp_json = JSON::parse node  \n\treturn p_json \nend \n\ndef report_gen(w,r,l) \n\treport_template = {\n\t\t:warnKind =>w,\n\t\t:reviewStatus =>r,\n\t\t:logBody =>l\n\t}\n\treturn report_template\t\nend\n\nclass CustomModule\n\n\tdef initialize(json_file)\n\t\t@data = json_file\n\t\t@exp = []\n\tend\n\t\t\t\t\t\t\t\t\t\n\tdef defmodule(name,&block) \n\t\tyield block\n\t\texp_json = JSON::stringify @exp\n\t\t$stdout.puts exp_json\n\tend  \n\nend\n\n\ndef export_data\n\tcounter = 0 \n\tff = \"\"\n\tj = $stdin.read\n\t#ff = File.read(ARGV[0])\n\tc = CustomModule.new(j)\n\tc.instance_eval {\n\t\tdefmodule \"module 1\" do\n\n\t\t\tdef regra1(inpt_data)\n\t\t\t\tr = report_gen \"failure\",\"humidity not okay\", \"humdidity is above 10\"\n\t\t\t\t@exp.push r\n\t\t\tend\n\n\t\tend\n\n\t}\nend \n\n\t\t\t\t\t\nexport_data()\n"
+        }
+    ],
+    "package_plugin_anomaly": []
+}
