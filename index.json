@@ -4,14 +4,14 @@
     "package_aggr": [
         {
             "name_agg": "underground",
-            "routes": "/sensor/underground/"
+            "routes": "underground"
         }
     ],
     "package_plugin_config": [
         {
             "name_module": "module 1",
-            "base_route": "/underground",
-            "agg_route": "/underground",
+            "base_route": "underground",
+            "agg_route": "underground",
             "script_path": "test_underground"
         }
     ],
