@@ -11,7 +11,7 @@
         {
             "name_module": "module 1",
             "base_route": "underground",
-            "agg_route": "aboveground",
+            "agg_route": "underground",
             "script_path": "test_underground"
         }
     ]
