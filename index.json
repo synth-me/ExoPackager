@@ -10,7 +10,6 @@
     "package_plugin_config": [
         {
             "name_module": "module 1",
-            "base_route": "underground",
             "agg_route": "underground",
             "script_path": "test_underground"
         }
