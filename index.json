@@ -5,6 +5,10 @@
         {
             "name_agg": "underground",
             "routes": "underground"
+        },
+        {
+            "name_agg": "aboveground",
+            "routes": "aboveground"
         }
     ],
     "package_plugin_config": [
